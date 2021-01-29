@@ -1,0 +1,14 @@
+<div id="other-articles-link">
+    {{ with .NextInSection }}
+    <div id="next-article">
+        Next: 
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </div>
+    {{ end }}
+    {{ with .PrevInSection }}
+    <div id="prev-article">
+        Prev: 
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+    </div>
+    {{ end }}
+</div>

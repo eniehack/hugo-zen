@@ -1,13 +1,45 @@
-{{ partial "header.html" . }}
+{{ define "header" }}
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">
+      You are using an <strong>outdated</strong> browser. Please
+      <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+      your experience.
+      </p>
+  <![endif]-->
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="{{ .Site.Params.logo }}" width="60" height="60" alt="{{ .Site.Title }}"></a>
+		</div>
+    <h1 class="site-title">{{ .Site.Title }}</h1>
+	</header>
+{{ end }}
 
+{{ define "main" }}
 	<main role="main">
-		<h1 class="list-title">{{ .Title }}</h1>
-{{ range .Data.Pages }}
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }} #Draft{{ end }}</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 02, 2006" }}</time></span>
-		</article>
+		<h1 class="site__title">{{ .Title }}</h1>
+{{ range .Site.RegularPages }}
+  {{ if eq .Section "blog" }}
+  	<section class="entry__section" itemscope itemtype="http://schema.org/Blog">
+  		<h2 class="entry__title" itemprop="headline">
+        <a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }} #Draft{{ end }}</a>
+      </h2>
+  		<span class="entry__meta">
+        <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "January 02, 2006" }}
+        </time>
+        <div class="entry__tags">
+          tags:
+          <ul itemprop="keyword">
+            {{ range (.GetTerms "tags") }}
+            <li>
+              <a href="{{ .Permalink }}">{{ .LinkTitle}} </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </span>
+  	</section>
+  {{ end }}
 {{ end }}
 	</main>
-
-{{ partial "footer.html" . }}
+{{ end }}
