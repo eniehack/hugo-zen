@@ -19,7 +19,9 @@
         {{ template "_internal/opengraph.html" .  }}
         {{ template "_internal/twitter_cards.html" . }}
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <link rel="alternate" href="{{ "/feed.atom" | absURL }}" type="application/atom+xml">
+        {{- with .OutputFormats.Get "ATOM" }}
+        <link rel="{{ .Rel }}" href="{{ .RelPermalink }}" type="{{ .MediaType.Type }}">
+        {{- end }}
         {{ partial "stylesheet.html" . }}
         {{ partial "javascript.html" . }}
         {{ partial "head.html" . }}
