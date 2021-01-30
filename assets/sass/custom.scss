@@ -20,7 +20,6 @@ img {
 header,
 footer {
   margin: 4rem 0;
-  text-align: center;
 }
 
 main {
@@ -32,38 +31,75 @@ main {
   max-width: 600px;
 }
 
-.header-logo img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 4px solid #E1E1E1;
+.header__navbar {
+  display: flex;
+  list-style: none;
+
+  li {
+    margin: 0 3px;
+    &:first-child {
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
 }
 
-.header-logo img:hover {
-  border-color: #F1F1F1;
+.header-navbar__item--bold {
+  font-size: 1.9rem;
 }
 
 .site-title {
   margin-top: 2rem;
 }
 
-.entry-title {
+.entry__title,
+.article__title {
   margin-bottom: 0;
+  a {
+    text-decoration: none;
+  }
 }
 
-.entry-title a {
-  text-decoration: none;
-}
-
-.entry-meta {
+.entry__meta,
+.article__meta {
   display: inline-block;
   margin-bottom: 2rem;
   font-size: 1.7rem;
   color: #888;
 }
 
-.footer-link {
+.entry-meta__tags,
+.article__tags {
+  display: flex;
+  margin-bottom: 0;
+  li {
+    list-style: none;
+    margin: 0 3px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.footer__links {
   margin: 2rem 0;
+  display: flex;
+
+  li {
+    list-style: none;
+    margin-right: 20px;
+  }
+}
+
+.tag__meta {
+  display: flex;
+  li {
+    list-style: none;
+    margin: 0 5px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 .hr {
