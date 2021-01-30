@@ -3,21 +3,21 @@
 {{ end }}
 
 {{ define "main" }}
+  <aside>
+      {{ .TableOfContents }}
+  </aside>
 	<main role="main">
 		<article itemscope itemtype="http://schema.org/BlogPosting">
-			<h1 class="entry-title" itemprop="headline">{{ .Title }}</h1>
-			<span class="entry-meta">
+			<h1 class="article__title" itemprop="headline">{{ .Title }}</h1>
+			<span class="article__meta">
+        <ul class="article__tags">
+          {{ range (.GetTerms "tags") }}
+          <li><a href="{{ .Permalink }}">#{{.LinkTitle}}</a></li>
+          {{ end }}
+        </ul>
         <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">
           {{ .Date.Format "January 02, 2006" }}
         </time>
-        <div class="tags">
-          tags: 
-          <ul>
-            {{ range (.GetTerms "tags") }}
-            <li><a href="{{ .Permalink }}">{{.LinkTitle}} </a></li>
-            {{ end }}
-          </ul>
-        </div>
       </span>
 			<section itemprop="entry-text">
 				{{ .Content }}
