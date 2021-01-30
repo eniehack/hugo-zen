@@ -1,4 +1,3 @@
-<hr />
 <footer role="contentinfo">
 	<ul class="footer__links">
     {{ range .Site.Params.social }}
@@ -9,6 +8,6 @@
     </li>
     {{ end }}
 	</ul>
-	<small class="copyright">Copyright &copy; {{ .Site.Copyright | safeHTML }}</small>
-  <small>made by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/eniehack/hugo-zen">zen theme</a>.</small>
+  <small class="footer__copyright"><p>Copyright &copy; {{ .Site.Copyright | safeHTML }}</p></small>
+  <small class="footer__generator"><p>made by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/eniehack/hugo-zen">zen theme</a>.</p></small>
 </footer>
