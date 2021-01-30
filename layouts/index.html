@@ -6,8 +6,8 @@
 	<main role="main">
     <h2>Recent articles</h2>
 {{- $limit := 10 -}}
-{{ if isset .Site.Params "homepagelimit" }}
-  {{- $limit = .Site.Params.homepagelimit -}}
+{{ if isset .Site.Params.services.limit "home" }}
+  {{- $limit = .Site.Params.services.limit.home -}}
 {{ end }}
 {{ $pages := .Site.RegularPages | first $limit }}
 {{ range $pages }}
