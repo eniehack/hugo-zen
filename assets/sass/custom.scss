@@ -70,6 +70,7 @@ h1.article__title {
 .entry-meta__tags,
 .article__tags {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 0;
   li {
     list-style: none;
