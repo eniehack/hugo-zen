@@ -1,3 +1,7 @@
+{{ define "title" }}
+tag: {{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
 {{ define "header" }}
   {{ partial "header.html" . }}
 {{ end }}
@@ -5,9 +9,9 @@
 {{ define "main" }}
 	<main role="main">
     <ul class="tag__meta">
-      <li><h1 class="site__title">tag: {{ .Title }}</h1></li>
+      <li><h1 class="site__title"><span style="color: #888">articles / </span>{{ .Title }}</h1></li>
       {{- with .OutputFormats.Get "ATOM" }}
-      <li><a href="{{ .RelPermalink }}" rel="{{ .Rel }}" type="{{ .MediaType.Type }}">tag Feed</a></li>
+      <li><a href="{{ .RelPermalink }}" rel="{{ .Rel }}" type="{{ .MediaType.Type }}">tag feed</a></li>
       {{- end }}
     </ul>
     {{ range .Pages }}
