@@ -38,18 +38,17 @@ main {
   li {
     margin: 0 3px;
     &:first-child {
-      margin-right: auto;
       margin-left: 0;
     }
   }
 }
 
-.header-navbar__item--bold {
-  font-size: 1.9rem;
-}
-
 .site-title {
   margin-top: 2rem;
+}
+
+h1.article__title {
+  font-size: 3.0rem;
 }
 
 .entry__title,
@@ -92,10 +91,8 @@ main {
 }
 
 .tag__meta {
-  display: flex;
   li {
     list-style: none;
-    margin: 0 5px;
     &:first-child {
       margin-left: 0;
     }

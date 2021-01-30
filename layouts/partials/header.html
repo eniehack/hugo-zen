@@ -6,17 +6,12 @@
     </p>
 <![endif]-->
 <header role="banner">
+  <h1>{{ .Site.Title }}</h1>
   <nav>
     <ul class="header__navbar">
-      <li class="header-navbar__item--bold">
-        <a href="/">{{ .Site.Title }}</a>
-      </li>
+      <li><a href="/">Home</a></li>
       <li><a href="/tags">Tags</a></li>
-      <li><a href="{{ "/feed.atom" | absURL }}">Feed</a></li>
+      <li><a type="application/atom+xml" rel="alternate" href="{{ "/atom.xml" | absURL }}">Feed</a></li>
     </ul>
   </nav>
-  {{ $isHomePage := eq .Title .Site.Title }}
-	{{ if eq $isHomePage true }}
-  <h1 class="site-title">{{ .Site.Title }}</h1>
-  {{ end }}
 </header>
