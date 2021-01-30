@@ -1,16 +1,22 @@
-{{ define "header" }}
-  <!--[if lt IE 8]>
-      <p class="browserupgrade">
-      You are using an <strong>outdated</strong> browser. Please
-      <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-      your experience.
-      </p>
-  <![endif]-->
-	<header role="banner">
-		<div class="header-logo">
-			<a href="/"><img src="{{ .Site.Params.logo }}" width="60" height="60" alt="{{ .Site.Title }}"></a>
-		</div>
-    {{ $isHomePage := eq .Title .Site.Title }}
-		{{ if eq $isHomePage true }}<h1 class="site-title">{{ .Site.Title }}</h1>{{ end }}
-	</header>
-{{ end }}
+<!--[if lt IE 8]>
+    <p class="browserupgrade">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+    your experience.
+    </p>
+<![endif]-->
+<header role="banner">
+  <nav>
+    <ul class="header__navbar">
+      <li class="header-navbar__item--bold">
+        <a href="/">{{ .Site.Title }}</a>
+      </li>
+      <li><a href="/tags">Tags</a></li>
+      <li><a href="{{ "/feed.atom" | absURL }}">Feed</a></li>
+    </ul>
+  </nav>
+  {{ $isHomePage := eq .Title .Site.Title }}
+	{{ if eq $isHomePage true }}
+  <h1 class="site-title">{{ .Site.Title }}</h1>
+  {{ end }}
+</header>
