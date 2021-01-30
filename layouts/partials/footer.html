@@ -1,11 +1,14 @@
+<hr />
 <footer role="contentinfo">
-	<div class="hr"></div>
-	<div class="footer-link">
-		{{ with .Site.Params.email }}<a href="mailto:{{ . }}" target="_blank">Email</a>{{ end }}
-		{{ with .Site.Params.twitter }}<a href="{{ . }}" target="_blank">Twitter</a>{{ end }}
-		{{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank">Facebook</a>{{ end }}
-		{{ with .Site.Params.github }}<a href="{{ . }}" target="_blank">GitHub</a>{{ end }}
-		{{ with .Site.Params.gitlab }}<a href="{{ . }}" target="_blank">GitLab</a>{{ end }}
-	</div>
-	<div class="copyright">Copyright &copy; {{ .Site.Copyright | safeHTML }}</div>
+	<ul class="footer__links">
+    {{ range .Site.Params.social }}
+    <li>
+      <a href="{{ .url }}" rel="noreferer noopener me" target="_blank" alt="{{ .name }}">
+        <i class="fa fa-{{ .icon }} fa-2x" aria-hidden="true"></i>
+      </a>
+    </li>
+    {{ end }}
+	</ul>
+	<small class="copyright">Copyright &copy; {{ .Site.Copyright | safeHTML }}</small>
+  <small>made by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/eniehack/hugo-zen">zen theme</a>.</small>
 </footer>
