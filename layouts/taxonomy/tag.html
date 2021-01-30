@@ -1,0 +1,17 @@
+{{ define "header" }}
+  {{ partial "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+	<main role="main">
+    <ul class="tag__meta">
+      <li><h1 class="site__title">tag: {{ .Title }}</h1></li>
+      {{- with .OutputFormats.Get "ATOM" }}
+      <li><a href="{{ .RelPermalink }}" rel="{{ .Rel }}" type="{{ .MediaType.Type }}">tag Feed</a></li>
+      {{- end }}
+    </ul>
+    {{ range .Pages }}
+      {{ partial "list/entry.html" . }}
+    {{ end }}
+	</main>
+{{ end }}

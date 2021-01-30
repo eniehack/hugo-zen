@@ -1,0 +1,21 @@
+{{ define "header" }}
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">
+      You are using an <strong>outdated</strong> browser. Please
+      <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+      your experience.
+      </p>
+  <![endif]-->
+	<header role="banner">
+    <h2><a href="/">{{ .Site.Title }}</a></h2>
+	</header>
+{{ end }}
+
+{{ define "main" }}
+	<main role="main">
+		<h1 class="site__title">{{ .Title }}</h1>
+{{ range .Site.Taxonomies.tags.ByCount }}
+      <li><a href="{{ .Page.Permalink }}"> {{ .Page.Title }}</a>({{ .Count }})</li>
+{{ end }}
+	</main>
+{{ end }}
