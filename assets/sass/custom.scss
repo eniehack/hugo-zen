@@ -59,7 +59,13 @@ h1.article__title {
   }
 }
 
-.entry__meta,
+.entry__meta {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 1.7rem;
+  color: #888;
+}
+
 .article__meta {
   display: inline-block;
   margin-bottom: 2rem;

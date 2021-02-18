@@ -12,7 +12,7 @@
 			<span class="article__meta">
         <ul class="article__tags">
           {{ range (.GetTerms "tags") }}
-          <li><a href="{{ .Permalink }}" class="p-name">#{{.LinkTitle}}</a></li>
+          <li>#<a href="{{ .Permalink }}" class="p-category">{{.LinkTitle}}</a></li>
           {{ end }}
         </ul>
         <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}" class="dt-published">
