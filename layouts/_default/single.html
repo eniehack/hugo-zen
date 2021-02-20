@@ -3,9 +3,6 @@
 {{ end }}
 
 {{ define "main" }}
-  <aside>
-      {{ .TableOfContents }}
-  </aside>
 	<main role="main">
     <article itemscope itemtype="http://schema.org/BlogPosting" class="h-entry">
 			<h1 class="p-name article__title" itemprop="headline">{{ .Title }}</h1>
@@ -19,6 +16,10 @@
           {{ .Date.Format "January 02, 2006" }}
         </time>
       </span>
+      <aside>
+          <span>Table of contents</span>
+        {{ .TableOfContents }}
+      </aside>
       <div itemprop="entry-text" class="e-content">
 				{{ .Content }}
 			</div>
