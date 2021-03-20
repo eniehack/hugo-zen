@@ -6,7 +6,7 @@
     <ul itemprop="keyword" class="entry-meta__tags">
       {{ range (.GetTerms "tags") }}
       <li>
-        <a href="{{ .Permalink }}" class="p-category">#{{ .LinkTitle }}</a>
+        #<a href="{{ .Permalink }}" class="p-category">{{ .LinkTitle }}</a>
       </li>
       {{ end }}
     </ul>
